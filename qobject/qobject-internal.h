@@ -15,6 +15,7 @@
 static inline void qobject_init(QObject *obj, QType type)
 {
     assert(QTYPE_NONE < type && type < QTYPE__MAX);
+    // obj->base 为 struct QObjectBase_ 就俩个成员一个为应用基数，一个为类类型
     obj->base.refcnt = 1;
     obj->base.type = type;
 }

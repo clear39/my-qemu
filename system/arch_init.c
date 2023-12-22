@@ -43,6 +43,7 @@ const uint32_t arch_type = QEMU_ARCH;
 
 void qemu_init_arch_modules(void)
 {
+// 目前在build/config-host.h中 CONFIG_MODULES 没有定义
 #ifdef CONFIG_MODULES
     module_init_info(qemu_modinfo);
     module_allow_arch(TARGET_NAME);

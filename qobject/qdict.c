@@ -28,6 +28,7 @@ QDict *qdict_new(void)
     QDict *qdict;
 
     qdict = g_malloc0(sizeof(*qdict));
+    // QOBJECT(qdict) 将 QDict 转成 QObject（原因QDict结构体的第一个成员为struct QObjectBase_ base，而QObject的有且只有成员为struct QObjectBase_ ）
     qobject_init(QOBJECT(qdict), QTYPE_QDICT);
 
     return qdict;

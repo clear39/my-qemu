@@ -42,6 +42,7 @@ get_plugin_meminfo_rw(qemu_plugin_meminfo_t i)
     return i >> 16;
 }
 
+// CONFIG_PLUGIN 在 build/config-host.h 中定义
 #ifdef CONFIG_PLUGIN
 extern QemuOptsList qemu_plugin_opts;
 
