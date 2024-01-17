@@ -367,6 +367,33 @@ static void raspi3b_machine_class_init(ObjectClass *oc, void *data)
     rmc->board_rev = 0xa02082;
     raspi_machine_class_common_init(mc, rmc->board_rev);
 };
+
+static void raspi4b1g_machine_class_init(ObjectClass *oc, void *data)
+{
+    MachineClass *mc = MACHINE_CLASS(oc);
+    RaspiMachineClass *rmc = RASPI_MACHINE_CLASS(oc);
+
+    rmc->board_rev = 0xa03111;
+    raspi_machine_class_common_init(mc, rmc->board_rev);
+};
+
+static void raspi4b2g_machine_class_init(ObjectClass *oc, void *data)
+{
+    MachineClass *mc = MACHINE_CLASS(oc);
+    RaspiMachineClass *rmc = RASPI_MACHINE_CLASS(oc);
+
+    rmc->board_rev = 0xb03112;
+    raspi_machine_class_common_init(mc, rmc->board_rev);
+};
+
+static void raspi4b4g_machine_class_init(ObjectClass *oc, void *data)
+{
+    MachineClass *mc = MACHINE_CLASS(oc);
+    RaspiMachineClass *rmc = RASPI_MACHINE_CLASS(oc);
+    // 这两个值来源于 https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#using-revision-codes-for-board-identification
+    rmc->board_rev = 0xc03111;
+    raspi_machine_class_common_init(mc, rmc->board_rev);
+};
 #endif /* TARGET_AARCH64 */
 
 static const TypeInfo raspi_machine_types[] = {
@@ -391,6 +418,18 @@ static const TypeInfo raspi_machine_types[] = {
         .name           = MACHINE_TYPE_NAME("raspi3b"),
         .parent         = TYPE_RASPI_MACHINE,
         .class_init     = raspi3b_machine_class_init,
+    }, {
+        .name           = MACHINE_TYPE_NAME("raspi4b1g"),
+        .parent         = TYPE_RASPI_MACHINE,
+        .class_init     = raspi4b1g_machine_class_init,
+    }, {
+        .name           = MACHINE_TYPE_NAME("raspi4b2g"),
+        .parent         = TYPE_RASPI_MACHINE,
+        .class_init     = raspi4b2g_machine_class_init,
+    }, {
+        .name           = MACHINE_TYPE_NAME("raspi4b4g"),
+        .parent         = TYPE_RASPI_MACHINE,
+        .class_init     = raspi4b4g_machine_class_init,
 #endif
     }, {
         .name           = TYPE_RASPI_MACHINE,
